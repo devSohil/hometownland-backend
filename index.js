@@ -5,7 +5,7 @@ const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
 const app = express();
-const allowedOrigins = ["http://localhost:5173"];
+const allowedOrigins = ["https://htl-demo.onrender.com"];
 app.use(
   cors({
     origin: function (origin, callback) {
