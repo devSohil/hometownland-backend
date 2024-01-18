@@ -5,6 +5,8 @@ const {
   searchPost,
   filterPost,
   singlePost,
+  deletePost,
+  userPost,
 } = require("../controllers/postController");
 const multer = require("multer");
 
@@ -25,6 +27,8 @@ router.route("/").get(getAllPosts);
 router.route("/search/:search").get(searchPost);
 router.route("/filter").get(filterPost);
 router.route("/singlepost/:id").get(singlePost);
+router.route("/delete/:id").delete(deletePost);
+router.route("/profile/:id").get(userPost);
 router
   .route("/createpost/:id")
   .post(upload.array("propertyImage", 5), createPost);

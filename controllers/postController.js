@@ -156,3 +156,23 @@ exports.singlePost = async (req, res) => {
     res.status(500).json(err);
   }
 };
+
+exports.userPost = async (req, res) => {
+  try {
+    const post = await Post.find({ userId: req.params.id });
+    res.status(200).json(post);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+exports.deletePost = async (req, res) => {
+  try {
+    const deletedpost = await Post.findByIdAndDelete(req.params.id);
+    const post = await Post.findById(deletedpost.userId);
+    // res.status(200).json({ message: "Post deleted successfully" });
+    res.status(200).json({ post });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+};

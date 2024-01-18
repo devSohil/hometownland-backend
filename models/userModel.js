@@ -14,7 +14,14 @@ const UserModel = new mongoose.Schema({
     type: String,
     required: true,
   },
-  email: String,
+  email: {
+    type: String,
+    default: "",
+  },
+  username: {
+    type: String,
+    default: "",
+  },
   emailverified: {
     type: Boolean,
     default: false,
